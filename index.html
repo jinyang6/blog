@@ -51,15 +51,13 @@
             margin-right: 20%;
             display: block;
             word-wrap: break-word;
-            transition: transform 0.1s;
         }
-
-        /*.event-card-pure-text:hover {
-            transform: scale(1.1);
-        }*/
 
         /*add more beautiful card style after this line!*/
 
+
+        /*add effects after this line!*/
+       
 
     </style>
 </header>
@@ -140,9 +138,48 @@
         <!-- events container at right -->
         <div id="events-container" class="events-container">
             
+
+            <!-- write helper scripts after this line! -->
+            <script>
+
+                function sleep(ms) {
+                    return new Promise(resolve => setTimeout(resolve, ms));
+                }
+
+                function typeMultipleLines(element_id, yourText) {
+                    var currentLength = 0;
+                    var caption = yourText;
+                    type(document.getElementById(element_id), caption, currentLength)
+                }
+
+                async function type(element_pointer, caption, currentLength) {
+                    //print two letter each time
+                    element_pointer.textContent = caption.substr(0, currentLength++); //let cursor disappear, write one letter
+                    await sleep(100)// x ms of cursor disappear, also the interval of writting the next letter
+                    element_pointer.textContent = caption.substr(0, currentLength++) + '|';//let cursor appear, write another letter
+                    
+                    if(currentLength < caption.length+1) {//keep writing since there are more letter
+                        setTimeout(type, 50, element_pointer, caption, currentLength);//every x ms print next two
+                    } else {
+                        //end of printing, wait for sometime, clear the text, then print again
+                        await sleep(2333)
+                        element_pointer.textContent = ''; 
+                        setTimeout(type, 0, element_pointer, caption, 0);
+                    }
+                }
+            </script>
+
             <!-- add more events here !!! -->
 
-
+            <div class="event-card-pure-text">
+                <div style="height:15%;background-color:black;border: 0 solid black;border-radius: 25px;">
+                        <div id="me_typing_code" style="white-space:pre-wrap;color:#007bff;margin-top:1%;margin-left:1%"></div>
+                        <script>
+                            me_typing_code_text = "while(true) { \n    //keeping coding \n     printf('developer develping.\\n'); \n } \n ... ";
+                            typeMultipleLines('me_typing_code', me_typing_code_text);
+                        </script>
+                </div>
+            </div>
 
 
             <div class="event-card-pure-text">
