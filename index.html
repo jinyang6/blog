@@ -62,9 +62,11 @@
     </style>
 </header>
 <!-- overall container -->
-<div id="info-events-container" style="position: relative;
+<body id="info-events-container" style="position: relative;
             width:100%;
             height:100%;
+            min-width:20%;
+            min-height:20%;
             background-image: url('star_background.jpg');
             background-size:cover;
             background-position:center;
@@ -83,35 +85,31 @@
                         box-shadow: 10px 0px 5px grey;
                         backdrop-filter: blur(10px);">
             
-                        <!-- use table to create rows -->
-           <table style="position:relative;width:100%;height:100%;">
-               <tr style="height:0;">
-                    <td>
-                        <!-- portrait -->
-                        <div style="
+                        <!-- use flex-direction:column; to create rows -->
+            <div style="position:relative;width:100%;height:100%;flex-direction:column;">
+
+                    <!-- portrait -->
+                    <div style="
                         position: relative;
                         background-image: url('./portrait.jpg');
                         background-position:center;
                         background-size:cover;
-                        width:100px;
-                        height:100px;
+                        width:7.5vw;
+                        height:7.5vw;
                         border:1px solid #007bff;
                         border-radius: 50%;
                         box-shadow: 0px 0px 20px 0 grey;
                         display:inline-block;
-                        margin-left:30%;"></div>
-                    </td>
-               </tr>
+                        margin-top:5%;
+                        margin-left:25%;"></div>
 
-               <tr style="height:0;">
-                   <td>
-                       <!-- name -->
-                       <div style="font-weight:bold;text-align:center;width:100%;">jinyang jia</div>
-                    </td>
-               </tr>
 
-               <tr style="height:0;">
-                <td>
+
+                    <!-- name -->
+                    <div style="font-weight:bold;text-align:center;width:100%;">jinyang jia</div>
+
+
+
                     <!-- resume -->
                     <div style="
                                 width:100%;
@@ -124,13 +122,8 @@
                                                         text-align:center;
                                                         color:#007bff;
                                                         text-decoration:none;">resume.pdf</a>
-                    </div>
-                </td>
-            </tr>
-
-                <!-- must remian as placeholder -->
-               <tr><td></td></tr>
-           </table>
+                    </div>  
+            </div>
         </div>
         <!-- end of information containter at left -->
 
@@ -175,10 +168,14 @@
 
 
             <div class="event-card-pure-text">
-                <div style="position:relative;height:15%;background-color:black;border: 0 solid black;border-radius: 25px;">
-                        <div id="me_typing_code" style="white-space:pre-wrap;color:#007bff;padding-top:1%;padding-left:1%"></div>
+                <div style="position:relative;height:17vh;background-color:black;border: 0 solid black;border-radius: 25px;">
+                        <div id="me_typing_code" style="white-space:pre-wrap;
+                                                        color:#007bff;
+                                                        padding-top:1%;
+                                                        padding-left:1%;
+                                                        font-size:2vmin"></div>
                         <script>
-                            me_typing_code_text = "while(true) { \n    //keeping coding \n     printf('developer develping.\\n'); \n } \n ... ";
+                            me_typing_code_text = "while(true) { \n     //keeping coding \n     printf('developer develping.\\n'); \n } \n ... ";
                             typeMultipleLines('me_typing_code', me_typing_code_text);
                         </script>
                 </div>
@@ -447,7 +444,7 @@ You can change your future
             
         </div>
         <!-- end of events container at right -->
-</div>
+</body>
 
 
 </html>
